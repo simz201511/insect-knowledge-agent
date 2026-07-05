@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>虫识 · 昆虫知识库智能体</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-content">
+      <div class="logo">
+        <span class="logo-icon">🐛</span>
+        <div class="logo-text">
+          <h1>虫识</h1>
+          <p>昆虫知识库与识别智能体</p>
+        </div>
+      </div>
+      <nav class="nav-tabs">
+        <button class="nav-tab active" data-tab="identify">智能识别</button>
+        <button class="nav-tab" data-tab="encyclopedia">昆虫百科</button>
+        <button class="nav-tab" data-tab="compare">对比表</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 智能识别 -->
+  <section id="tab-identify" class="tab-content active">
+    <div class="input-guide">
+      <p>上传昆虫照片和/或用文字描述你看到的昆虫，两种方式可单独使用，也可组合使用</p>
+    </div>
+
+    <div class="upload-zone">
+      <div class="upload-area" id="uploadArea">
+        <div class="upload-icon">📸</div>
+        <p class="upload-title">上传昆虫照片</p>
+        <p class="upload-hint">点击拍照或拖拽图片到此处</p>
+        <input type="file" id="fileInput" accept="image/*" hidden>
+      </div>
+      <div class="preview-container" id="previewContainer" style="display:none;">
+        <img id="previewImage" class="preview-img" alt="预览图">
+        <button class="btn-reupload" id="reuploadBtn">重新上传</button>
+      </div>
+    </div>
+
+    <div class="divider">
+      <span>补充描述（可选）</span>
+    </div>
+
+    <div class="describe-zone">
+      <div class="describe-input-wrap">
+        <textarea id="describeInput" class="describe-input" placeholder="例如：一只黑色的小虫子，会飞，在厨房里看到的，大概5毫米大小..." rows="3"></textarea>
+      </div>
+      <div class="quick-tags">
+        <span class="quick-tag-label">快速特征：</span>
+        <button class="quick-tag" data-tag="会飞">会飞</button>
+        <button class="quick-tag" data-tag="会跳">会跳</button>
+        <button class="quick-tag" data-tag="黑色">黑色</button>
+        <button class="quick-tag" data-tag="褐色">褐色</button>
+        <button class="quick-tag" data-tag="绿色">绿色</button>
+        <button class="quick-tag" data-tag="红色">红色</button>
+        <button class="quick-tag" data-tag="咬人">咬人</button>
+        <button class="quick-tag" data-tag="有毒">有毒</button>
+        <button class="quick-tag" data-tag="大虫">大虫</button>
+        <button class="quick-tag" data-tag="小虫">小虫</button>
+        <button class="quick-tag" data-tag="夜里">夜里</button>
+        <button class="quick-tag" data-tag="厨房">厨房</button>
+        <button class="quick-tag" data-tag="草丛">草丛</button>
+        <button class="quick-tag" data-tag="水中">水中</button>
+      </div>
+      <p id="identifyHint" class="identify-hint">上传图片或输入描述，可单独使用，也可组合使用</p>
+      <button class="btn-search" id="searchBtn">开始识别</button>
+    </div>
+
+    <div id="identifyResults" class="results-container"></div>
+  </section>
+
+  <!-- 昆虫百科 -->
+  <section id="tab-encyclopedia" class="tab-content">
+    <div class="encyclopedia-header">
+      <input type="text" id="encyclopediaSearch" class="encyclopedia-search" placeholder="搜索昆虫名称...">
+      <div class="encyclopedia-filters">
+        <button class="filter-chip active" data-filter="all">全部</button>
+        <button class="filter-chip" data-filter="danger">⚠️ 危险</button>
+        <button class="filter-chip" data-filter="bites">🦷 咬人</button>
+        <button class="filter-chip" data-filter="venomous">☠️ 有毒</button>
+        <button class="filter-chip" data-filter="harmless">✅ 无害</button>
+        <button class="filter-chip filter-invasive" data-filter="invasive">🌍 外来物种</button>
+        <button class="filter-chip filter-yearround" data-filter="yearround">📅 全年活动</button>
+      </div>
+    </div>
+    <div id="encyclopediaGrid" class="encyclopedia-grid"></div>
+    <div id="insectDetailModal" class="modal" style="display:none;">
+      <div class="modal-backdrop" id="modalBackdrop"></div>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </section>
+
+  <!-- 对比表 -->
+  <section id="tab-compare" class="tab-content">
+    <div class="compare-header">
+      <h2>昆虫咬人特性与怕人程度对照表</h2>
+      <p>按"会不会咬人"分组，组内按"不怕人 → 很怕人"排序</p>
+    </div>
+    <div class="compare-legend">
+      <span class="legend-item"><span class="legend-dot dot-red"></span> 会咬人·吸血</span>
+      <span class="legend-item"><span class="legend-dot dot-coral"></span> 会蜇人·毒刺</span>
+      <span class="legend-item"><span class="legend-dot dot-amber"></span> 可能/偶尔咬人</span>
+      <span class="legend-item"><span class="legend-dot dot-teal"></span> 不会咬人</span>
+    </div>
+    <div id="compareTableContainer" class="compare-table-container"></div>
+  </section>
+
+  <footer class="app-footer">
+    <p>虫识 · 昆虫知识库智能体 | 数据覆盖 30+ 种常见昆虫 | 仅供参考，不构成医疗建议</p>
+  </footer>
+
+  <script src="js/insect-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
