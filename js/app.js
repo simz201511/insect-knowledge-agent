@@ -35,6 +35,17 @@ const App = {
     return { emoji: '🌌', name: '对流层顶', img: S + '12-tropopause.png', desc: `${m}米：接近平流层边缘，几乎没有生命能停留——滑到这里是"探底"了` };
   },
 
+  // 速度（km/h）→ 等级（无照片，纯文字提示）
+  speedTier(kmh) {
+    const v = kmh || 0;
+    if (v < 2)   return { emoji: '🐌', name: '蜗牛级', desc: `${v} km/h：慢慢挪，比人散步还慢` };
+    if (v < 8)   return { emoji: '🚶', name: '散步级', desc: `${v} km/h：小步快走的速度` };
+    if (v < 20)  return { emoji: '🏃', name: '小跑级', desc: `${v} km/h：相当于人小跑，昆虫里的"运动员"` };
+    if (v < 50)  return { emoji: '🚴', name: '飞奔级', desc: `${v} km/h：城市骑行速度，多数飞虫的水平` };
+    if (v < 100) return { emoji: '🏎️', name: '疾驰级', desc: `${v} km/h：赛车场速度，飞得相当快了` };
+    return { emoji: '🚀', name: '闪电级', desc: `${v} km/h：昆虫界的闪电，飞行速度天花板` };
+  },
+
   // Tab switching
   bindTabs() {
     document.querySelectorAll('.nav-tab').forEach(tab => {
@@ -451,6 +462,7 @@ const App = {
               <div class="info-item"><span class="label">季节：</span><span class="value">${insect.habits.season}</span></div>
               <div class="info-item"><span class="label">寿命：</span><span class="value">${insect.habits.lifespan}</span></div>
               ${typeof insect.climbFloors === 'number' ? (() => { const s = this.climbScenery(insect.climbFloors); return `<div class="info-item"><span class="label">🪜 能爬高度：</span><span class="value">约 ${insect.climbFloors.toLocaleString()} 层（≈ ${(insect.climbFloors * 3).toLocaleString()} 米）${s.emoji} ${s.name}</span></div><div class="info-item"><span class="label">🏞️ 这层的风景：</span><span class="value">${s.desc}</span></div><div class="modal-scenery-photo"><img src="${s.img}" alt="${s.name}" onerror="this.parentNode.style.display='none'"><div class="modal-scenery-caption">${s.emoji} ${s.name} · ${insect.name}的视野</div></div>`; })() : ''}
+              ${typeof insect.speed === 'number' ? (() => { const s = this.speedTier(insect.speed); return `<div class="info-item"><span class="label">💨 最快速度：</span><span class="value">约 ${insect.speed} km/h ${s.emoji} ${s.name}</span></div>`; })() : ''}
             </div>
             <div class="info-note" style="margin-top:8px;background:var(--color-surface-alt);font-size:13px;">
               社会行为：${insect.habits.socialBehavior}
@@ -573,13 +585,22 @@ const App = {
       insects = insects.filter(i => (i.climbFloors || 0) >= threshold);
       insects.sort((a, b) => (b.climbFloors || 0) - (a.climbFloors || 0)); // highest climbers first
     }
+    if (filter === 'speed') {
+      const threshold = this.speedThreshold || 0;
+      insects = insects.filter(i => (i.speed || 0) >= threshold);
+      insects.sort((a, b) => (b.speed || 0) - (a.speed || 0)); // fastest first
+    }
 
     if (insects.length === 0) {
-      const record = [...INSECT_DATABASE].sort((a, b) => (b.climbFloors || 0) - (a.climbFloors || 0))[0];
-      const climbMsg = filter === 'climb' && record
-        ? `没有昆虫能爬到这么高 🪜<br><span style="font-size:13px;">这里的风景：${this.climbScenery(this.climbThreshold || 0).emoji} ${this.climbScenery(this.climbThreshold || 0).name}<br>当前纪录保持者：${record.name}（约 ${record.climbFloors} 层 ≈ ${record.climbFloors * 3} 米）</span>`
-        : '未找到匹配的昆虫';
-      grid.innerHTML = `<div class="no-results"><div class="icon">${filter === 'climb' ? '🪜' : '🔍'}</div><p>${climbMsg}</p></div>`;
+      const fastestClimb = [...INSECT_DATABASE].sort((a, b) => (b.climbFloors || 0) - (a.climbFloors || 0))[0];
+      const fastestSpeed = [...INSECT_DATABASE].sort((a, b) => (b.speed || 0) - (a.speed || 0))[0];
+      let noMsg = '未找到匹配的昆虫';
+      if (filter === 'climb' && fastestClimb) {
+        noMsg = `没有昆虫能爬到这么高 🪜<br><span style="font-size:13px;">这里的风景：${this.climbScenery(this.climbThreshold || 0).emoji} ${this.climbScenery(this.climbThreshold || 0).name}<br>当前纪录保持者：${fastestClimb.name}（约 ${fastestClimb.climbFloors} 层 ≈ ${fastestClimb.climbFloors * 3} 米）</span>`;
+      } else if (filter === 'speed' && fastestSpeed) {
+        noMsg = `没有昆虫能跑这么快 💨<br><span style="font-size:13px;">当前速度纪录保持者：${fastestSpeed.name}（约 ${fastestSpeed.speed} km/h）</span>`;
+      }
+      grid.innerHTML = `<div class="no-results"><div class="icon">${filter === 'climb' ? '🪜' : filter === 'speed' ? '💨' : '🔍'}</div><p>${noMsg}</p></div>`;
       return;
     }
 
@@ -594,6 +615,7 @@ const App = {
             ${this.getDangerBadge(insect)}
           </div>
           ${typeof insect.climbFloors === 'number' ? `<div class="climb-badge" title="${this.climbScenery(insect.climbFloors).desc}">🪜 最高约 ${insect.climbFloors.toLocaleString()} 层 · ${this.climbScenery(insect.climbFloors).emoji}${this.climbScenery(insect.climbFloors).name}</div>` : ''}
+          ${typeof insect.speed === 'number' ? `<div class="speed-badge">💨 最快约 ${insect.speed} km/h</div>` : ''}
         </div>
       </div>
     `).join('');
@@ -717,9 +739,12 @@ document.addEventListener('DOMContentLoaded', () => {
     chip.addEventListener('click', () => {
       document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
       chip.classList.add('active');
-      // Show the climb slider only for the climb filter
-      document.getElementById('climbSliderWrap').style.display = chip.dataset.filter === 'climb' ? 'block' : 'none';
-      if (chip.dataset.filter === 'climb') updateClimbScenery(parseInt(climbSlider.value, 10));
+      // 仅在对应筛选下显示对应滑块面板
+      const f = chip.dataset.filter;
+      document.getElementById('climbSliderWrap').style.display = f === 'climb' ? 'block' : 'none';
+      document.getElementById('speedSliderWrap').style.display = f === 'speed' ? 'block' : 'none';
+      if (f === 'climb') updateClimbScenery(parseInt(climbSlider.value, 10));
+      if (f === 'speed') updateSpeedScenery(parseInt(speedSlider.value, 10));
       const searchTerm = document.getElementById('encyclopediaSearch').value;
       App.renderEncyclopedia(chip.dataset.filter, searchTerm);
     });
@@ -746,6 +771,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   climbSlider.addEventListener('input', e => setClimbValue(parseInt(e.target.value, 10)));
+
+  // 速度滑块（0-500 km/h）
+  const speedSlider = document.getElementById('speedSlider');
+  function updateSpeedScenery(v) {
+    const s = App.speedTier(v);
+    const el = document.getElementById('speedScenery');
+    if (el) el.innerHTML = `<div class="speed-tier"><span class="speed-emoji">${s.emoji}</span><span class="speed-name">${s.name}</span><span class="speed-desc">${s.desc}</span></div>`;
+  }
+  function setSpeedValue(v) {
+    v = Math.max(0, Math.min(500, Math.round(v / 5) * 5));
+    speedSlider.value = v;
+    App.speedThreshold = v;
+    document.getElementById('speedValue').textContent = v.toLocaleString() + ' km/h';
+    updateSpeedScenery(v);
+    const activeFilter = document.querySelector('.filter-chip.active');
+    if (activeFilter && activeFilter.dataset.filter === 'speed') {
+      const searchTerm = document.getElementById('encyclopediaSearch').value;
+      App.renderEncyclopedia('speed', searchTerm);
+    }
+  }
+  speedSlider.addEventListener('input', e => setSpeedValue(parseInt(e.target.value, 10)));
 
   // 拖动风景照片：向右拖=上升、向左拖=下降（每 12px 对应 5 层）
   const sceneryCard = document.getElementById('climbScenery');
