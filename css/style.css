@@ -365,6 +365,8 @@ body {
 .filter-chip.filter-invasive.active { background: var(--color-coral); color: #fff; border-color: var(--color-coral); }
 .filter-chip.filter-yearround { color: var(--color-info); border-color: var(--color-info); }
 .filter-chip.filter-yearround.active { background: var(--color-info); color: #fff; border-color: var(--color-info); }
+.filter-chip.filter-pet { color: var(--color-success); border-color: var(--color-success); }
+.filter-chip.filter-pet.active { background: var(--color-success); color: #fff; border-color: var(--color-success); }
 
 .encyclopedia-grid {
   display: grid;
@@ -399,6 +401,23 @@ body {
   color: #fff;
   font-weight: 600;
   white-space: nowrap;
+}
+.pet-flag {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 8px;
+  background: var(--color-success);
+  color: #fff;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.pet-note {
+  background: var(--color-success-light);
+  color: var(--color-success);
+  border-left: 3px solid var(--color-success);
 }
 .insect-card-body { padding: 12px 14px; }
 .insect-card-body h4 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
