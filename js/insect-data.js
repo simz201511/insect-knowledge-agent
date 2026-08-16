@@ -14,6 +14,7 @@ const INSECT_DATABASE = [
     dangerLevel: 4,
     fearOfHumans: 1,
     climbFloors: 20,    identification: {
+    speed: 2,
       size: "3-6mm",
       color: "灰褐色 / 黑色",
       bodyShape: "细长",
@@ -57,6 +58,7 @@ const INSECT_DATABASE = [
     dangerLevel: 3,
     fearOfHumans: 3,
     climbFloors: 10,    identification: {
+    speed: 25,
       size: "12-15mm",
       color: "黄黑相间条纹",
       bodyShape: "椭圆饱满，多毛",
@@ -100,6 +102,7 @@ const INSECT_DATABASE = [
     dangerLevel: 5,
     fearOfHumans: 1,
     climbFloors: 25,    identification: {
+    speed: 30,
       size: "15-25mm（大型胡蜂可达40mm）",
       color: "黄黑相间 / 黑褐色",
       bodyShape: "细长，腰部明显收窄",
@@ -143,6 +146,7 @@ const INSECT_DATABASE = [
     dangerLevel: 2,
     fearOfHumans: 5,
     climbFloors: 6,    identification: {
+    speed: 5,
       size: "10-50mm（因种类而异）",
       color: "红棕色 / 黑褐色",
       bodyShape: "椭圆扁平",
@@ -188,6 +192,7 @@ const INSECT_DATABASE = [
     dangerLevel: 2,
     fearOfHumans: 3,
     climbFloors: 7,    invasive: true,
+    speed: 1,
     invasiveInfo: {
       origin: "红火蚁原产南美洲",
       invadedYear: "2004年入侵中国",
@@ -238,6 +243,7 @@ const INSECT_DATABASE = [
     dangerLevel: 2,
     fearOfHumans: 1,
     climbFloors: 20,    identification: {
+    speed: 7,
       size: "5-8mm",
       color: "灰黑色，胸部有4条黑色纵纹",
       bodyShape: "椭圆",
@@ -283,6 +289,7 @@ const INSECT_DATABASE = [
     dangerLevel: 1,
     fearOfHumans: 4,
     climbFloors: 3,    identification: {
+    speed: 100,
       size: "30-80mm（翅展可达100mm）",
       color: "多种（蓝、红、绿、黄、黑）",
       bodyShape: "细长，四翅展开",
@@ -328,6 +335,7 @@ const INSECT_DATABASE = [
     dangerLevel: 1,
     fearOfHumans: 3,
     climbFloors: 10,    identification: {
+    speed: 3,
       size: "30-80mm（部分种类可达100mm以上）",
       color: "绿色 / 褐色 / 黄白色",
       bodyShape: "细长，三角形头可自由转动",
@@ -377,6 +385,7 @@ const INSECT_DATABASE = [
     dangerLevel: 1,
     fearOfHumans: 4,
     climbFloors: 3,    identification: {
+    speed: 12,
       size: "翅展20-150mm",
       color: "色彩斑斓（蓝、橙、黄、白、黑等）",
       bodyShape: "细长，翅宽大",
@@ -420,6 +429,7 @@ const INSECT_DATABASE = [
     dangerLevel: 2,
     fearOfHumans: 2,
     climbFloors: 3,    identification: {
+    speed: 8,
       size: "翅展5-200mm（因种类差异极大）",
       color: "灰褐 / 暗色为主，部分色彩鲜艳",
       bodyShape: "粗壮多毛，翅宽",
@@ -463,6 +473,7 @@ const INSECT_DATABASE = [
     dangerLevel: 5,
     fearOfHumans: 1,
     climbFloors: 2,    identification: {
+    speed: 1,
       size: "未吸血2-10mm，吸血后可达30mm",
       color: "红褐 / 黑褐色，吸血后灰白",
       bodyShape: "卵圆形，背腹扁平，吸血后膨胀如豆",
@@ -506,6 +517,7 @@ const INSECT_DATABASE = [
     dangerLevel: 4,
     fearOfHumans: 1,
     climbFloors: 1,    identification: {
+    speed: 1,
       size: "1-4mm",
       color: "深棕 / 红棕色",
       bodyShape: "侧扁，如芝麻粒",
@@ -549,6 +561,7 @@ const INSECT_DATABASE = [
     dangerLevel: 3,
     fearOfHumans: 1,
     climbFloors: 4,    identification: {
+    speed: 1,
       size: "5-7mm（吸血后更圆鼓）",
       color: "红棕色（吸血前浅棕色）",
       bodyShape: "卵圆扁平",
@@ -592,6 +605,7 @@ const INSECT_DATABASE = [
     dangerLevel: 3,
     fearOfHumans: 4,
     climbFloors: 2,    identification: {
+    speed: 2,
       size: "30-200mm（少棘蜈蚣约100mm）",
       color: "红棕 / 黑褐色，足黄色",
       bodyShape: "细长扁平，多体节",
@@ -635,6 +649,7 @@ const INSECT_DATABASE = [
     dangerLevel: 4,
     fearOfHumans: 5,
     climbFloors: 4,    identification: {
+    speed: 1,
       size: "30-180mm（因种类而异）",
       color: "黄褐 / 黑褐色",
       bodyShape: "前体椭圆，后体细长分节，末端球状毒囊",
@@ -678,6 +693,7 @@ const INSECT_DATABASE = [
     dangerLevel: 2,
     fearOfHumans: 5,
     climbFloors: 25,    identification: {
+    speed: 1,
       size: "2-50mm（腿展可达100mm以上）",
       color: "黑 / 棕 / 灰 / 鲜艳色彩（部分）",
       bodyShape: "头胸部+腹部两段，细腰连接",
@@ -723,6 +739,7 @@ const INSECT_DATABASE = [
     dangerLevel: 1,
     fearOfHumans: 3,
     climbFloors: 3,    identification: {
+    speed: 6,
       size: "5-8mm",
       color: "红/橙/黄色带黑点，或黑色带黄点",
       bodyShape: "半球形，如半个圆球",
@@ -768,6 +785,7 @@ const INSECT_DATABASE = [
     dangerLevel: 1,
     fearOfHumans: 4,
     climbFloors: 3,    identification: {
+    speed: 2,
       size: "15-50mm",
       color: "黑褐 / 黄褐色",
       bodyShape: "扁平粗壮",
@@ -811,6 +829,7 @@ const INSECT_DATABASE = [
     dangerLevel: 1,
     fearOfHumans: 4,
     climbFloors: 1500,    identification: {
+    speed: 16,
       size: "30-70mm",
       color: "绿色 / 黄褐 / 灰褐色",
       bodyShape: "粗壮，后足发达",
@@ -854,6 +873,7 @@ const INSECT_DATABASE = [
     dangerLevel: 1,
     fearOfHumans: 3,
     climbFloors: 10,    identification: {
+    speed: 8,
       size: "30-55mm",
       color: "黑色 / 褐色，部分有绿色斑纹",
       bodyShape: "粗壮，头宽",
@@ -897,6 +917,7 @@ const INSECT_DATABASE = [
     dangerLevel: 1,
     fearOfHumans: 3,
     climbFloors: 5,    identification: {
+    speed: 4,
       size: "8-15mm",
       color: "绿色 / 褐色 / 黑白相间",
       bodyShape: "盾形，背部隆起",
@@ -940,6 +961,7 @@ const INSECT_DATABASE = [
     dangerLevel: 1,
     fearOfHumans: 4,
     climbFloors: 2,    identification: {
+    speed: 1,
       size: "8-25mm",
       color: "深棕色 / 黑色",
       bodyShape: "细长扁平",
@@ -983,6 +1005,7 @@ const INSECT_DATABASE = [
     dangerLevel: 3,
     fearOfHumans: 1,
     climbFloors: 5,    identification: {
+    speed: 90,
       size: "10-25mm",
       color: "灰褐 / 黑色，部分有彩色斑纹",
       bodyShape: "粗壮，头部大",
@@ -1028,6 +1051,7 @@ const INSECT_DATABASE = [
     dangerLevel: 1,
     fearOfHumans: 4,
     climbFloors: 2,    identification: {
+    speed: 4,
       size: "5-20mm",
       color: "黑褐色，鞘翅柔软",
       bodyShape: "细长扁平",
@@ -1073,6 +1097,7 @@ const INSECT_DATABASE = [
     dangerLevel: 1,
     fearOfHumans: 2,
     climbFloors: 1,    identification: {
+    speed: 1,
       size: "幼虫30-70mm，成蛾25-30mm",
       color: "幼虫白色/淡黄色；成蛾白色",
       bodyShape: "幼虫圆柱形多体节，成蛾粗壮多毛",
@@ -1116,6 +1141,7 @@ const INSECT_DATABASE = [
     dangerLevel: 2,
     fearOfHumans: 5,
     climbFloors: 8,    identification: {
+    speed: 6,
       size: "3-10mm（蚁后可达20mm）",
       color: "乳白色 / 淡黄色 / 黑色（繁殖蚁）",
       bodyShape: "柔软，与蚂蚁相似但无细腰",
@@ -1159,6 +1185,7 @@ const INSECT_DATABASE = [
     dangerLevel: 1,
     fearOfHumans: 5,
     climbFloors: 1,    identification: {
+    speed: 1,
       size: "幼虫20-30mm，成虫12-18mm",
       color: "幼虫黄褐色；成虫黑褐色",
       bodyShape: "幼虫圆柱形多节，成虫椭圆",
@@ -1204,6 +1231,7 @@ const INSECT_DATABASE = [
     dangerLevel: 1,
     fearOfHumans: 3,
     climbFloors: 5,    identification: {
+    speed: 12,
       size: "2-80mm（因种类差异极大）",
       color: "黑色 / 棕色 / 金属光泽 / 鲜艳色彩",
       bodyShape: "椭圆或长椭圆形，体壁坚硬",
@@ -1247,6 +1275,7 @@ const INSECT_DATABASE = [
     dangerLevel: 3,
     fearOfHumans: 1,
     climbFloors: 3,    identification: {
+    speed: 4,
       size: "1-3mm（极小）",
       color: "黑色 / 灰黑色",
       bodyShape: "细小如尘埃",
@@ -1291,6 +1320,7 @@ const INSECT_DATABASE = [
     dangerLevel: 5,
     fearOfHumans: 1,
     climbFloors: 8,    invasive: true,
+    speed: 1,
     invasiveInfo: {
       origin: "南美洲",
       invadedYear: "2004年首次于中国广东省发现",
@@ -1341,6 +1371,7 @@ const INSECT_DATABASE = [
     dangerLevel: 2,
     fearOfHumans: 2,
     climbFloors: 15,    identification: {
+    speed: 2,
       size: "工蚁7-14mm，蚁后可达16-17mm（中国体型最大的蚂蚁之一）",
       color: "通体黑色，体表密被灰白色细绒毛",
       bodyShape: "粗壮结实，背面呈弓形隆起",
@@ -1384,6 +1415,7 @@ const INSECT_DATABASE = [
     dangerLevel: 2,
     fearOfHumans: 5,
     climbFloors: 2000,    invasive: true,
+    speed: 6,
     invasiveInfo: {
       origin: "北美洲",
       invadedYear: "1979年首次于中国辽宁省发现",
@@ -1434,6 +1466,7 @@ const INSECT_DATABASE = [
     dangerLevel: 2,
     fearOfHumans: 1,
     climbFloors: 3,    invasive: true,
+    speed: 3,
     invasiveInfo: {
       origin: "全球热带/亚热带地区（B型/Q型为入侵生物型）",
       invadedYear: "1990年代末期在中国大暴发",
@@ -1484,6 +1517,7 @@ const INSECT_DATABASE = [
     dangerLevel: 2,
     fearOfHumans: 5,
     climbFloors: 6,    invasive: true,
+    speed: 3,
     invasiveInfo: {
       origin: "非洲东北部",
       invadedYear: "随贸易传入中国，已遍布全国各地",
@@ -1534,6 +1568,7 @@ const INSECT_DATABASE = [
     dangerLevel: 1,
     fearOfHumans: 4,
     climbFloors: 10,
+    speed: 20,
     rare: true,
     rareInfo: "吉丁虫中许多大型、金属光泽强烈（翠绿、宝蓝、紫铜）的种类极为稀少，是甲虫收藏界的“宝石”，部分稀有种受贸易与栖息地减少影响。",
     identification: {
