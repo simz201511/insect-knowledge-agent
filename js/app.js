@@ -456,6 +456,7 @@ const App = {
               社会行为：${insect.habits.socialBehavior}
             </div>
             ${insect.pet ? `<div class="info-note pet-note" style="margin-top:8px;">🐾 <strong>可做宠物：</strong>${insect.petInfo}</div>` : ''}
+            ${insect.endangered ? `<div class="info-note endangered-note" style="margin-top:8px;">🌿 <strong>濒危物种：</strong>${insect.endangeredInfo}</div>` : ''}
           </div>
 
           <div class="info-section">
@@ -564,6 +565,7 @@ const App = {
     if (filter === 'invasive') insects = insects.filter(i => i.invasive === true);
     if (filter === 'yearround') insects = insects.filter(i => i.habits.season && i.habits.season.includes('全年'));
     if (filter === 'pet') insects = insects.filter(i => i.pet === true);
+    if (filter === 'endangered') insects = insects.filter(i => i.endangered === true);
     if (filter === 'climb') {
       const threshold = this.climbThreshold || 0;
       insects = insects.filter(i => (i.climbFloors || 0) >= threshold);
@@ -581,7 +583,7 @@ const App = {
 
     grid.innerHTML = insects.map(insect => `
       <div class="insect-card" onclick="App.showInsectDetail('${insect.id}')">
-        <div class="insect-card-header">${this.insectPhoto(insect, 'card-photo')}${insect.invasive ? '<span class="invasive-flag">🌍 外来</span>' : ''}${insect.pet ? '<span class="pet-flag">🐾 可宠物</span>' : ''}</div>
+        <div class="insect-card-header">${this.insectPhoto(insect, 'card-photo')}${insect.invasive ? '<span class="invasive-flag">🌍 外来</span>' : ''}${insect.pet ? '<span class="pet-flag">🐾 可宠物</span>' : ''}${insect.endangered ? '<span class="endangered-flag">🌿 濒危</span>' : ''}</div>
         <div class="insect-card-body">
           <h4>${insect.name}</h4>
           <div class="latin">${insect.latinName}</div>
