@@ -278,6 +278,8 @@ const INSECT_DATABASE = [
     latinName: "Odonata",
     category: "蜻蜓目",
     emoji: "🦗",
+    endangered: true,
+    endangeredInfo: "许多蜻蜓依赖洁净水体与湿地，受水体污染、湿地消失影响，部分种类数量明显下降。",
     dangerLevel: 1,
     fearOfHumans: 4,
     climbFloors: 3,    identification: {
@@ -368,6 +370,8 @@ const INSECT_DATABASE = [
     emoji: "🦋",
     pet: true,
     petInfo: "可饲育毛毛虫至羽化，需准备寄主植物与网箱；观察完放归自然更友好。",
+    endangered: true,
+    endangeredInfo: "许多蝴蝶种类因栖息地破坏与气候变化数量锐减，部分珍稀种（如金斑喙凤蝶）为中国国家一级保护动物。",
     dangerLevel: 1,
     fearOfHumans: 4,
     climbFloors: 3,    identification: {
@@ -1017,6 +1021,8 @@ const INSECT_DATABASE = [
     latinName: "Lampyridae",
     category: "鞘翅目",
     emoji: "🦗",
+    endangered: true,
+    endangeredInfo: "受光污染、农药和栖息地丧失影响，多地野生萤火虫种群急剧下降，被多国列为受威胁物种。",
     dangerLevel: 1,
     fearOfHumans: 4,
     climbFloors: 2,    identification: {
