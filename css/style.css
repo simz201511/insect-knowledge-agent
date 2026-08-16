@@ -475,3 +475,252 @@ body {
   .info-grid { grid-template-columns: 1fr; }
   .encyclopedia-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
 }
+
+/* ============ 瓢虫课堂 ============ */
+.classroom-header { margin-bottom: 20px; }
+.classroom-intro {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); padding: 20px; margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+.classroom-mascot { font-size: 48px; line-height: 1; }
+.classroom-intro h2 { font-size: 20px; color: var(--color-primary-dark); }
+.classroom-intro p { color: var(--color-text-secondary); margin-top: 4px; }
+.classroom-nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.classroom-chip {
+  padding: 8px 14px; border-radius: 20px; border: 1px solid var(--color-border);
+  background: var(--color-surface); color: var(--color-text-secondary);
+  cursor: pointer; font-size: 13px; transition: all .2s;
+}
+.classroom-chip:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.classroom-chip.active { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+
+.classroom-content {
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-sm);
+}
+.lesson-header { margin-bottom: 20px; }
+.lesson-header h3 { font-size: 18px; color: var(--color-primary-dark); }
+.lesson-header p { color: var(--color-text-secondary); margin-top: 4px; }
+
+/* 特征卡片 */
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.feature-card {
+  background: var(--color-primary-light); border-radius: var(--radius-md);
+  padding: 18px; text-align: center;
+}
+.feature-emoji { font-size: 28px; margin-bottom: 8px; }
+.feature-card h4 { color: var(--color-primary-dark); margin-bottom: 6px; font-size: 14px; }
+.feature-card p { color: var(--color-text-secondary); font-size: 13px; }
+
+/* 提示框 */
+.callout { border-radius: var(--radius-md); padding: 16px 18px; margin-bottom: 16px; font-size: 13px; }
+.callout-warn { background: var(--color-warning-light); border: 1px solid #e8d5b0; }
+.callout-tip { background: var(--color-info-light); border: 1px solid #c7ddef; color: var(--color-info); }
+.callout h4 { margin-bottom: 8px; font-size: 14px; }
+.callout-main { font-weight: 600; color: var(--color-warning); }
+.callout-line { color: var(--color-text-secondary); margin-top: 4px; }
+
+/* 趣味数据 */
+.fun-data h4 { margin-bottom: 12px; }
+.fun-data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+.fun-data-item {
+  background: var(--color-surface-alt); border-radius: var(--radius-md);
+  padding: 16px; text-align: center;
+}
+.fun-num { font-size: 20px; font-weight: 700; color: var(--color-primary); }
+.fun-label { font-size: 12px; color: var(--color-text-secondary); margin-top: 4px; }
+
+/* 变态发育 */
+.meta-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 20px; }
+.meta-card { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 18px; }
+.meta-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.meta-emoji { font-size: 32px; }
+.meta-head h4 { font-size: 16px; color: var(--color-primary-dark); }
+.meta-process { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 12px; }
+.meta-stage {
+  background: var(--color-primary-light); color: var(--color-primary-dark);
+  border-radius: 14px; padding: 4px 12px; font-size: 13px; font-weight: 600;
+}
+.meta-arrow { color: var(--color-text-tertiary); }
+.meta-desc { color: var(--color-text-secondary); font-size: 13px; margin-bottom: 8px; }
+.meta-reps { font-size: 13px; color: var(--color-text); }
+
+/* 测验 */
+.quiz-box { background: var(--color-surface-alt); border-radius: var(--radius-md); padding: 18px; }
+.quiz-box h4 { margin-bottom: 8px; }
+.quiz-question { font-weight: 600; margin-bottom: 12px; }
+.quiz-options { display: flex; flex-direction: column; gap: 8px; }
+.quiz-option {
+  text-align: left; padding: 10px 14px; border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border); background: var(--color-surface);
+  cursor: pointer; font-size: 13px; transition: all .2s;
+}
+.quiz-option:hover:not(:disabled) { border-color: var(--color-primary); }
+.quiz-option.correct { background: var(--color-success-light); border-color: var(--color-success); color: var(--color-success); font-weight: 600; }
+.quiz-option.wrong { background: var(--color-danger-light); border-color: var(--color-danger); color: var(--color-danger); }
+.quiz-explain { margin-top: 12px; color: var(--color-text-secondary); font-size: 13px; }
+
+/* 分类速查表 */
+.taxo-table-wrap, .bvm-table-wrap { overflow-x: auto; margin-bottom: 16px; }
+.taxo-table, .bvm-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.taxo-table th, .taxo-table td, .bvm-table th, .bvm-table td {
+  padding: 10px 12px; border-bottom: 1px solid var(--color-border); text-align: left; vertical-align: top;
+}
+.taxo-table th, .bvm-table th { background: var(--color-primary-light); color: var(--color-primary-dark); font-size: 13px; }
+.taxo-table tbody tr:hover, .bvm-table tbody tr:hover { background: var(--color-surface-alt); }
+.taxo-order { font-weight: 600; white-space: nowrap; }
+.taxo-emoji { margin-right: 6px; }
+.latin { font-style: italic; color: var(--color-text-tertiary); }
+
+/* 蝴蝶vs飞蛾 */
+.bvm-feature { font-weight: 600; white-space: nowrap; }
+.bvm-butterfly { background: rgba(59,109,17,0.04); }
+.bvm-moth { background: rgba(24,95,165,0.04); }
+
+/* 观察指南 */
+.obs-card { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 18px; }
+.obs-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.obs-emoji { font-size: 24px; }
+.obs-head h4 { color: var(--color-primary-dark); font-size: 14px; }
+.obs-list { list-style: none; }
+.obs-list li {
+  font-size: 13px; color: var(--color-text-secondary); padding: 6px 0 6px 18px;
+  position: relative; border-bottom: 1px dashed var(--color-border);
+}
+.obs-list li:last-child { border-bottom: none; }
+.obs-list li::before { content: "🐞"; position: absolute; left: 0; font-size: 11px; }
+
+/* ============ 真实昆虫照片 ============ */
+.photo-wrap { position: relative; overflow: hidden; }
+.photo-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo-fallback {
+  display: none; align-items: center; justify-content: center;
+  width: 100%; height: 100%;
+  background: var(--color-primary-light);
+}
+
+/* 百科卡片照片 */
+.photo-wrap.card-photo { height: 150px; background: var(--color-primary-light); }
+.insect-card-header .photo-fallback { font-size: 48px; }
+
+/* 识别结果卡照片 */
+.result-emoji { width: 72px; height: 72px; flex-shrink: 0; }
+.photo-wrap.result-photo { width: 72px; height: 72px; border-radius: 50%; border: 2px solid var(--color-border); background: var(--color-primary-light); }
+.photo-wrap.result-photo .photo-fallback { font-size: 36px; }
+
+/* 详情弹窗照片 */
+.photo-wrap.modal-photo { height: 190px; max-width: 320px; margin: 0 auto; border-radius: var(--radius-lg); background: var(--color-surface-alt); }
+.photo-wrap.modal-photo .photo-fallback { font-size: 64px; }
+
+/* ============ 能爬多高筛选 ============ */
+.filter-chip.filter-climb { color: var(--color-warning); border-color: var(--color-warning); }
+.filter-chip.filter-climb.active { background: var(--color-warning); color: #fff; border-color: var(--color-warning); }
+
+.climb-slider-wrap {
+  margin-top: 12px; padding: 14px 16px 10px;
+  background: var(--color-warning-light); border-radius: var(--radius-lg);
+  border: 1px dashed var(--color-warning);
+}
+.climb-slider-header {
+  display: flex; align-items: baseline; gap: 6px; margin-bottom: 10px; flex-wrap: wrap;
+}
+.climb-slider-label { font-size: 13px; color: var(--color-text-secondary); }
+#climbValue { font-size: 18px; color: var(--color-warning); }
+.climb-meters { font-size: 12px; color: var(--color-text-secondary); }
+
+#climbSlider {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 6px; border-radius: 3px; outline: none;
+  background: linear-gradient(to right, var(--color-warning) 0%, #d9a441 100%);
+  cursor: pointer;
+}
+#climbSlider::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: #fff; border: 3px solid var(--color-warning);
+  box-shadow: 0 1px 4px rgba(0,0,0,.25); cursor: grab;
+}
+#climbSlider::-moz-range-thumb {
+  width: 16px; height: 16px; border-radius: 50%;
+  background: #fff; border: 3px solid var(--color-warning);
+  box-shadow: 0 1px 4px rgba(0,0,0,.25); cursor: grab;
+}
+.climb-slider-scale {
+  display: flex; justify-content: space-between;
+  font-size: 11px; color: var(--color-text-secondary); margin-top: 6px;
+}
+
+.climb-badge {
+  margin-top: 6px; font-size: 12px; color: var(--color-warning);
+  background: var(--color-warning-light); border-radius: 10px;
+  padding: 2px 8px; display: inline-block;
+}
+
+/* ============ 楼层风景 ============ */
+.climb-scenery {
+  margin-top: 10px; padding: 10px 12px;
+  background: #fff; border-radius: var(--radius-lg);
+  border: 1px solid rgba(217, 164, 65, .45);
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  animation: sceneryIn .25s ease;
+}
+@keyframes sceneryIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: none; } }
+.climb-scenery .scenery-emoji { font-size: 22px; line-height: 1; }
+.climb-scenery .scenery-name {
+  font-size: 14px; font-weight: 700; color: var(--color-warning);
+  padding: 1px 8px; background: var(--color-warning-light); border-radius: 10px;
+}
+.climb-scenery .scenery-desc { font-size: 12.5px; color: var(--color-text-secondary); flex-basis: 100%; }
+
+/* ============ 风景照片 ============ */
+.climb-scenery { padding: 0; overflow: hidden; display: block; border: none; }
+.climb-scenery .scenery-photo {
+  width: 100%; height: 150px; object-fit: cover; display: block;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.climb-scenery .scenery-text {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  padding: 8px 12px; background: #fff; border: 1px solid rgba(217,164,65,.4);
+  border-top: none; border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+.climb-scenery .scenery-text .scenery-emoji { font-size: 20px; }
+.climb-scenery .scenery-text .scenery-name {
+  font-size: 13.5px; font-weight: 700; color: var(--color-warning);
+  padding: 1px 8px; background: var(--color-warning-light); border-radius: 10px;
+}
+.climb-scenery .scenery-text .scenery-desc { font-size: 12.5px; color: var(--color-text-secondary); flex-basis: 100%; }
+
+.modal-scenery-photo { margin: 10px 0 4px; position: relative; }
+.modal-scenery-photo img {
+  width: 100%; max-height: 220px; object-fit: cover; border-radius: var(--radius-lg); display: block;
+}
+.modal-scenery-caption {
+  position: absolute; left: 10px; bottom: 10px;
+  background: rgba(0,0,0,.55); color: #fff; font-size: 12px;
+  padding: 3px 10px; border-radius: 12px; backdrop-filter: blur(3px);
+}
+
+/* ============ 风景照片拖拽控制 ============ */
+.climb-scenery {
+  position: relative;
+  touch-action: none;
+  user-select: none; -webkit-user-select: none;
+  cursor: grab;
+}
+.climb-scenery.dragging { cursor: grabbing; }
+.climb-scenery .scenery-photo {
+  transition: transform .18s ease;
+  pointer-events: none;
+}
+.climb-scenery.dragging .scenery-photo {
+  transform: translateX(var(--drag-x, 0)) scale(1.02);
+  transition: none;
+}
+.climb-scenery .scenery-hint {
+  position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+  background: rgba(0,0,0,.5); color: #fff; font-size: 11px;
+  padding: 3px 10px; border-radius: 12px;
+  backdrop-filter: blur(3px); pointer-events: none; white-space: nowrap;
+}
