@@ -677,6 +677,64 @@ body {
 .filter-chip.filter-climb { color: var(--color-warning); border-color: var(--color-warning); }
 .filter-chip.filter-climb.active { background: var(--color-warning); color: #fff; border-color: var(--color-warning); }
 
+/* ============ 谁跑得快筛选 ============ */
+.filter-chip.filter-speed { color: var(--color-info); border-color: var(--color-info); }
+.filter-chip.filter-speed.active { background: var(--color-info); color: #fff; border-color: var(--color-info); }
+
+.speed-slider-wrap {
+  margin-top: 12px; padding: 14px 16px 10px;
+  background: var(--color-info-light); border-radius: var(--radius-lg);
+  border: 1px dashed var(--color-info);
+}
+.speed-slider-header {
+  display: flex; align-items: baseline; gap: 6px; margin-bottom: 10px; flex-wrap: wrap;
+}
+.speed-slider-label { font-size: 13px; color: var(--color-text-secondary); }
+#speedValue { font-size: 18px; color: var(--color-info); }
+
+#speedSlider {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 6px; border-radius: 3px; outline: none;
+  background: linear-gradient(to right, var(--color-info) 0%, #7fb3e0 100%);
+  cursor: pointer;
+}
+#speedSlider::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: #fff; border: 3px solid var(--color-info);
+  box-shadow: 0 1px 4px rgba(0,0,0,.25); cursor: grab;
+}
+#speedSlider::-moz-range-thumb {
+  width: 16px; height: 16px; border-radius: 50%;
+  background: #fff; border: 3px solid var(--color-info);
+  box-shadow: 0 1px 4px rgba(0,0,0,.25); cursor: grab;
+}
+.speed-slider-scale {
+  display: flex; justify-content: space-between;
+  font-size: 11px; color: var(--color-text-secondary); margin-top: 6px;
+}
+
+.speed-badge {
+  margin-top: 6px; font-size: 12px; color: var(--color-info);
+  background: var(--color-info-light); border-radius: 10px;
+  padding: 2px 8px; display: inline-block;
+}
+
+.speed-scenery {
+  margin-top: 10px; padding: 10px 12px;
+  background: #fff; border-radius: var(--radius-lg);
+  border: 1px solid rgba(24,95,165,.35);
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  animation: sceneryIn .25s ease;
+}
+.speed-tier { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.speed-emoji { font-size: 22px; line-height: 1; }
+.speed-name {
+  font-size: 14px; font-weight: 700; color: var(--color-info);
+  padding: 1px 8px; background: var(--color-info-light); border-radius: 10px;
+}
+.speed-desc { font-size: 12.5px; color: var(--color-text-secondary); flex-basis: 100%; }
+
 .climb-slider-wrap {
   margin-top: 12px; padding: 14px 16px 10px;
   background: var(--color-warning-light); border-radius: var(--radius-lg);
