@@ -6,13 +6,14 @@
 const INSECT_DATABASE = [
   {
     id: "mosquito",
+    image: "assets/insects/mosquito.png",
     name: "蚊子",
     latinName: "Culicidae",
     category: "双翅目",
     emoji: "🦟",
     dangerLevel: 4,
     fearOfHumans: 1,
-    identification: {
+    climbFloors: 20,    identification: {
       size: "3-6mm",
       color: "灰褐色 / 黑色",
       bodyShape: "细长",
@@ -48,13 +49,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "honeybee",
+    image: "assets/insects/honeybee.png",
     name: "蜜蜂",
     latinName: "Apis mellifera",
     category: "膜翅目",
     emoji: "🐝",
     dangerLevel: 3,
     fearOfHumans: 3,
-    identification: {
+    climbFloors: 10,    identification: {
       size: "12-15mm",
       color: "黄黑相间条纹",
       bodyShape: "椭圆饱满，多毛",
@@ -90,13 +92,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "wasp",
+    image: "assets/insects/wasp.png",
     name: "胡蜂（马蜂）",
     latinName: "Vespidae",
     category: "膜翅目",
     emoji: "🐝",
     dangerLevel: 5,
     fearOfHumans: 1,
-    identification: {
+    climbFloors: 25,    identification: {
       size: "15-25mm（大型胡蜂可达40mm）",
       color: "黄黑相间 / 黑褐色",
       bodyShape: "细长，腰部明显收窄",
@@ -132,13 +135,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "cockroach",
+    image: "assets/insects/cockroach.png",
     name: "蟑螂",
     latinName: "Blattodea",
     category: "蜚蠊目",
     emoji: "🪳",
     dangerLevel: 2,
     fearOfHumans: 5,
-    identification: {
+    climbFloors: 6,    identification: {
       size: "10-50mm（因种类而异）",
       color: "红棕色 / 黑褐色",
       bodyShape: "椭圆扁平",
@@ -174,13 +178,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "ant",
+    image: "assets/insects/ant.png",
     name: "蚂蚁",
     latinName: "Formicidae",
     category: "膜翅目",
     emoji: "🐜",
     dangerLevel: 2,
     fearOfHumans: 3,
-    invasive: true,
+    climbFloors: 7,    invasive: true,
     invasiveInfo: {
       origin: "红火蚁原产南美洲",
       invadedYear: "2004年入侵中国",
@@ -223,13 +228,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "fly",
+    image: "assets/insects/fly.png",
     name: "苍蝇",
     latinName: "Musca domestica",
     category: "双翅目",
     emoji: "🪰",
     dangerLevel: 2,
     fearOfHumans: 1,
-    identification: {
+    climbFloors: 20,    identification: {
       size: "5-8mm",
       color: "灰黑色，胸部有4条黑色纵纹",
       bodyShape: "椭圆",
@@ -265,13 +271,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "dragonfly",
+    image: "assets/insects/dragonfly.png",
     name: "蜻蜓",
     latinName: "Odonata",
     category: "蜻蜓目",
     emoji: "🦗",
     dangerLevel: 1,
     fearOfHumans: 4,
-    identification: {
+    climbFloors: 3,    identification: {
       size: "30-80mm（翅展可达100mm）",
       color: "多种（蓝、红、绿、黄、黑）",
       bodyShape: "细长，四翅展开",
@@ -307,13 +314,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "mantis",
+    image: "assets/insects/mantis.png",
     name: "螳螂",
     latinName: "Mantodea",
     category: "螳螂目",
     emoji: "🦗",
     dangerLevel: 1,
     fearOfHumans: 3,
-    identification: {
+    climbFloors: 10,    identification: {
       size: "30-80mm（部分种类可达100mm以上）",
       color: "绿色 / 褐色 / 黄白色",
       bodyShape: "细长，三角形头可自由转动",
@@ -349,13 +357,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "butterfly",
+    image: "assets/insects/butterfly.png",
     name: "蝴蝶",
     latinName: "Lepidoptera",
     category: "鳞翅目",
     emoji: "🦋",
     dangerLevel: 1,
     fearOfHumans: 4,
-    identification: {
+    climbFloors: 3,    identification: {
       size: "翅展20-150mm",
       color: "色彩斑斓（蓝、橙、黄、白、黑等）",
       bodyShape: "细长，翅宽大",
@@ -391,13 +400,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "moth",
+    image: "assets/insects/moth.png",
     name: "飞蛾",
     latinName: "Lepidoptera",
     category: "鳞翅目",
     emoji: "🦋",
     dangerLevel: 2,
     fearOfHumans: 2,
-    identification: {
+    climbFloors: 3,    identification: {
       size: "翅展5-200mm（因种类差异极大）",
       color: "灰褐 / 暗色为主，部分色彩鲜艳",
       bodyShape: "粗壮多毛，翅宽",
@@ -433,13 +443,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "tick",
+    image: "assets/insects/tick.png",
     name: "蜱虫",
     latinName: "Ixodidae",
     category: "蜱螨目",
     emoji: "🦟",
     dangerLevel: 5,
     fearOfHumans: 1,
-    identification: {
+    climbFloors: 2,    identification: {
       size: "未吸血2-10mm，吸血后可达30mm",
       color: "红褐 / 黑褐色，吸血后灰白",
       bodyShape: "卵圆形，背腹扁平，吸血后膨胀如豆",
@@ -475,13 +486,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "flea",
+    image: "assets/insects/flea.png",
     name: "跳蚤",
     latinName: "Siphonaptera",
     category: "蚤目",
     emoji: "🦟",
     dangerLevel: 4,
     fearOfHumans: 1,
-    identification: {
+    climbFloors: 1,    identification: {
       size: "1-4mm",
       color: "深棕 / 红棕色",
       bodyShape: "侧扁，如芝麻粒",
@@ -517,13 +529,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "bedbug",
+    image: "assets/insects/bedbug.png",
     name: "臭虫",
     latinName: "Cimex lectularius",
     category: "半翅目",
     emoji: "🦟",
     dangerLevel: 3,
     fearOfHumans: 1,
-    identification: {
+    climbFloors: 4,    identification: {
       size: "5-7mm（吸血后更圆鼓）",
       color: "红棕色（吸血前浅棕色）",
       bodyShape: "卵圆扁平",
@@ -559,13 +572,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "centipede",
+    image: "assets/insects/centipede.png",
     name: "蜈蚣",
     latinName: "Chilopoda",
     category: "唇足纲",
     emoji: "🐛",
     dangerLevel: 3,
     fearOfHumans: 4,
-    identification: {
+    climbFloors: 2,    identification: {
       size: "30-200mm（少棘蜈蚣约100mm）",
       color: "红棕 / 黑褐色，足黄色",
       bodyShape: "细长扁平，多体节",
@@ -601,13 +615,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "scorpion",
+    image: "assets/insects/scorpion.png",
     name: "蝎子",
     latinName: "Scorpiones",
     category: "蛛形纲",
     emoji: "🦂",
     dangerLevel: 4,
     fearOfHumans: 5,
-    identification: {
+    climbFloors: 4,    identification: {
       size: "30-180mm（因种类而异）",
       color: "黄褐 / 黑褐色",
       bodyShape: "前体椭圆，后体细长分节，末端球状毒囊",
@@ -643,13 +658,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "spider",
+    image: "assets/insects/spider.png",
     name: "蜘蛛",
     latinName: "Araneae",
     category: "蛛形纲",
     emoji: "🕷️",
     dangerLevel: 2,
     fearOfHumans: 5,
-    identification: {
+    climbFloors: 25,    identification: {
       size: "2-50mm（腿展可达100mm以上）",
       color: "黑 / 棕 / 灰 / 鲜艳色彩（部分）",
       bodyShape: "头胸部+腹部两段，细腰连接",
@@ -685,13 +701,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "ladybug",
+    image: "assets/insects/ladybug.png",
     name: "瓢虫",
     latinName: "Coccinellidae",
     category: "鞘翅目",
     emoji: "🐞",
     dangerLevel: 1,
     fearOfHumans: 3,
-    identification: {
+    climbFloors: 3,    identification: {
       size: "5-8mm",
       color: "红/橙/黄色带黑点，或黑色带黄点",
       bodyShape: "半球形，如半个圆球",
@@ -727,13 +744,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "cricket",
+    image: "assets/insects/cricket.png",
     name: "蟋蟀",
     latinName: "Gryllidae",
     category: "直翅目",
     emoji: "🦗",
     dangerLevel: 1,
     fearOfHumans: 4,
-    identification: {
+    climbFloors: 3,    identification: {
       size: "15-50mm",
       color: "黑褐 / 黄褐色",
       bodyShape: "扁平粗壮",
@@ -769,13 +787,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "locust",
+    image: "assets/insects/locust.png",
     name: "蝗虫",
     latinName: "Acrididae",
     category: "直翅目",
     emoji: "🦗",
     dangerLevel: 1,
     fearOfHumans: 4,
-    identification: {
+    climbFloors: 1500,    identification: {
       size: "30-70mm",
       color: "绿色 / 黄褐 / 灰褐色",
       bodyShape: "粗壮，后足发达",
@@ -811,13 +830,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "cicada",
+    image: "assets/insects/cicada.png",
     name: "蝉",
     latinName: "Cicadidae",
     category: "半翅目",
     emoji: "🦗",
     dangerLevel: 1,
     fearOfHumans: 3,
-    identification: {
+    climbFloors: 10,    identification: {
       size: "30-55mm",
       color: "黑色 / 褐色，部分有绿色斑纹",
       bodyShape: "粗壮，头宽",
@@ -853,13 +873,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "stinkbug",
+    image: "assets/insects/stinkbug.png",
     name: "蝽象（放屁虫）",
     latinName: "Pentatomidae",
     category: "半翅目",
     emoji: "🐛",
     dangerLevel: 1,
     fearOfHumans: 3,
-    identification: {
+    climbFloors: 5,    identification: {
       size: "8-15mm",
       color: "绿色 / 褐色 / 黑白相间",
       bodyShape: "盾形，背部隆起",
@@ -895,13 +916,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "earwig",
+    image: "assets/insects/earwig.png",
     name: "蠼螋",
     latinName: "Dermaptera",
     category: "革翅目",
     emoji: "🐛",
     dangerLevel: 1,
     fearOfHumans: 4,
-    identification: {
+    climbFloors: 2,    identification: {
       size: "8-25mm",
       color: "深棕色 / 黑色",
       bodyShape: "细长扁平",
@@ -937,13 +959,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "horsefly",
+    image: "assets/insects/horsefly.png",
     name: "牛虻",
     latinName: "Tabanidae",
     category: "双翅目",
     emoji: "🦟",
     dangerLevel: 3,
     fearOfHumans: 1,
-    identification: {
+    climbFloors: 5,    identification: {
       size: "10-25mm",
       color: "灰褐 / 黑色，部分有彩色斑纹",
       bodyShape: "粗壮，头部大",
@@ -979,13 +1002,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "firefly",
+    image: "assets/insects/firefly.png",
     name: "萤火虫",
     latinName: "Lampyridae",
     category: "鞘翅目",
     emoji: "🦗",
     dangerLevel: 1,
     fearOfHumans: 4,
-    identification: {
+    climbFloors: 2,    identification: {
       size: "5-20mm",
       color: "黑褐色，鞘翅柔软",
       bodyShape: "细长扁平",
@@ -1021,13 +1045,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "silkworm",
+    image: "assets/insects/silkworm.png",
     name: "蚕",
     latinName: "Bombyx mori",
     category: "鳞翅目",
     emoji: "🐛",
     dangerLevel: 1,
     fearOfHumans: 2,
-    identification: {
+    climbFloors: 1,    identification: {
       size: "幼虫30-70mm，成蛾25-30mm",
       color: "幼虫白色/淡黄色；成蛾白色",
       bodyShape: "幼虫圆柱形多体节，成蛾粗壮多毛",
@@ -1063,13 +1088,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "termites",
+    image: "assets/insects/termites.png",
     name: "白蚁",
     latinName: "Isoptera",
     category: "蜚蠊目",
     emoji: "🐛",
     dangerLevel: 2,
     fearOfHumans: 5,
-    identification: {
+    climbFloors: 8,    identification: {
       size: "3-10mm（蚁后可达20mm）",
       color: "乳白色 / 淡黄色 / 黑色（繁殖蚁）",
       bodyShape: "柔软，与蚂蚁相似但无细腰",
@@ -1105,13 +1131,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "mealworm",
+    image: "assets/insects/mealworm.png",
     name: "面包虫",
     latinName: "Tenebrio molitor",
     category: "鞘翅目",
     emoji: "🐛",
     dangerLevel: 1,
     fearOfHumans: 5,
-    identification: {
+    climbFloors: 1,    identification: {
       size: "幼虫20-30mm，成虫12-18mm",
       color: "幼虫黄褐色；成虫黑褐色",
       bodyShape: "幼虫圆柱形多节，成虫椭圆",
@@ -1147,13 +1174,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "beetle",
+    image: "assets/insects/beetle.png",
     name: "甲虫",
     latinName: "Coleoptera",
     category: "鞘翅目",
     emoji: "🐛",
     dangerLevel: 1,
     fearOfHumans: 3,
-    identification: {
+    climbFloors: 5,    identification: {
       size: "2-80mm（因种类差异极大）",
       color: "黑色 / 棕色 / 金属光泽 / 鲜艳色彩",
       bodyShape: "椭圆或长椭圆形，体壁坚硬",
@@ -1189,13 +1217,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "gnat",
+    image: "assets/insects/gnat.png",
     name: "蠓虫",
     latinName: "Ceratopogonidae",
     category: "双翅目",
     emoji: "🦟",
     dangerLevel: 3,
     fearOfHumans: 1,
-    identification: {
+    climbFloors: 3,    identification: {
       size: "1-3mm（极小）",
       color: "黑色 / 灰黑色",
       bodyShape: "细小如尘埃",
@@ -1232,13 +1261,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "red-fire-ant",
+    image: "assets/insects/red-fire-ant.png",
     name: "红火蚁",
     latinName: "Solenopsis invicta",
     category: "膜翅目",
     emoji: "🐜",
     dangerLevel: 5,
     fearOfHumans: 1,
-    invasive: true,
+    climbFloors: 8,    invasive: true,
     invasiveInfo: {
       origin: "南美洲",
       invadedYear: "2004年首次于中国广东省发现",
@@ -1280,14 +1310,58 @@ const INSECT_DATABASE = [
     keywords: ["红火蚁", "入侵", "蚁巢", "叮咬", "火烧", "脓疱", "红蚁", "沙堆", "外来", "入侵物种"]
   },
   {
+    id: "japanese-carpenter-ant",
+    image: "assets/insects/japanese-carpenter-ant.png",
+    name: "日本弓背蚁",
+    latinName: "Camponotus japonicus",
+    category: "膜翅目",
+    emoji: "🐜",
+    dangerLevel: 2,
+    fearOfHumans: 2,
+    climbFloors: 15,    identification: {
+      size: "工蚁7-14mm，蚁后可达16-17mm（中国体型最大的蚂蚁之一）",
+      color: "通体黑色，体表密被灰白色细绒毛",
+      bodyShape: "粗壮结实，背面呈弓形隆起",
+      wings: "仅繁殖蚁（婚飞蚁）有翅",
+      distinctiveFeatures: "体型远大于普通蚂蚁，胸部背板呈弓形弯曲（\"弓背\"由此得名），受惊时抬起腹部喷洒蚁酸"
+    },
+    habits: {
+      activity: "白天活跃，春秋最盛",
+      habitat: "林地、公园、行道树，在朽木、树干和树皮缝中筑巢",
+      season: "4-10月（冬季蛰伏于巢内）",
+      socialBehavior: "单后制大型蚁群，工蚁分大小二型，分工明确",
+      lifespan: "工蚁数月至2年，蚁后寿命可超过10年"
+    },
+    bites: {
+      willBite: "yes",
+      biteDescription: "巢穴受扰时用发达的大颚咬住皮肤，并从腹部末端喷洒蚁酸，平时不主动攻击人",
+      painLevel: 2,
+      biteSymptoms: "咬处轻微刺痛，蚁酸可引起局部红肿灼热感，通常数小时内自行消退"
+    },
+    toxicity: {
+      isVenomous: false,
+      toxicityLevel: 1,
+      toxinDescription: "无蜇针，不注毒；以蚁酸（甲酸）自卫，对皮肤有轻微刺激性"
+    },
+    diet: {
+      food: "杂食——蚜虫蜜露、小型昆虫、植物汁液、糖类食物",
+      feedingHabits: "\"放牧\"蚜虫以获取蜜露，也会捕食活虫和动物尸体"
+    },
+    prevention: "不要翻动朽木、戳弄树皮缝中的蚁巢，野餐时遮盖甜食即可",
+    firstAid: "用清水或肥皂水冲洗咬痕，刺痒可冷敷，一般无需就医",
+    funFact: "日本弓背蚁是中国体型最大的蚂蚁之一，蚁后体长可达17mm、寿命超过10年。它们像牧民一样\"放牧\"蚜虫换取蜜露，是典型的昆虫界\"牧民\"",
+    keywords: ["日本弓背蚁", "弓背蚁", "大黑蚂蚁", "大蚂蚁", "黑蚂蚁", "木蚁", "蚁酸", "大只蚂蚁", "树上蚂蚁"]
+  },
+  {
     id: "fall-webworm",
+    image: "assets/insects/fall-webworm.png",
     name: "美国白蛾",
     latinName: "Hyphantria cunea",
     category: "鳞翅目",
     emoji: "🦋",
     dangerLevel: 2,
     fearOfHumans: 5,
-    invasive: true,
+    climbFloors: 2000,    invasive: true,
     invasiveInfo: {
       origin: "北美洲",
       invadedYear: "1979年首次于中国辽宁省发现",
@@ -1330,13 +1404,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "silverleaf-whitefly",
+    image: "assets/insects/silverleaf-whitefly.png",
     name: "烟粉虱",
     latinName: "Bemisia tabaci",
     category: "半翅目",
     emoji: "🦟",
     dangerLevel: 2,
     fearOfHumans: 1,
-    invasive: true,
+    climbFloors: 3,    invasive: true,
     invasiveInfo: {
       origin: "全球热带/亚热带地区（B型/Q型为入侵生物型）",
       invadedYear: "1990年代末期在中国大暴发",
@@ -1379,13 +1454,14 @@ const INSECT_DATABASE = [
   },
   {
     id: "german-cockroach",
+    image: "assets/insects/german-cockroach.png",
     name: "德国小蠊",
     latinName: "Blattella germanica",
     category: "蜚蠊目",
     emoji: "🪳",
     dangerLevel: 2,
     fearOfHumans: 5,
-    invasive: true,
+    climbFloors: 6,    invasive: true,
     invasiveInfo: {
       origin: "非洲东北部",
       invadedYear: "随贸易传入中国，已遍布全国各地",
@@ -1425,6 +1501,50 @@ const INSECT_DATABASE = [
     firstAid: "一般无需处理",
     funFact: "德国小蠊是地球上繁殖最快的蟑螂之一——一只雌虫一生可产4-8个卵鞘，每个卵鞘含30-40粒卵，后代呈几何级数增长。对多种杀虫剂已产生抗药性",
     keywords: ["德国小蠊", "小蟑螂", "入侵", "黄色蟑螂", "两条黑纹", "厨房", "外来", "入侵物种"]
+  },
+  {
+    id: "jewel-beetle",
+    image: "assets/insects/jewel-beetle.png",
+    name: "吉丁虫",
+    latinName: "Buprestidae (Chrysochroa spp.)",
+    category: "鞘翅目",
+    emoji: "🪲",
+    dangerLevel: 1,
+    fearOfHumans: 4,
+    climbFloors: 10,
+    identification: {
+      size: "10-40mm（多数中型，大型种类可达40mm）",
+      color: "体表具强烈金属光泽——翠绿、宝蓝、紫铜、金黄等炫目色彩，常带纵向彩色条纹",
+      bodyShape: "长卵形，背面隆起、腹部扁平，前端略窄，像一颗子弹头",
+      wings: "前翅为坚硬鞘翅，后翅膜质折叠于鞘翅下",
+      distinctiveFeatures: "鞘翅表面有细密刻点和彩色纵纹，受惊时鞘翅闭合贴紧树干；幼虫乳白色、扁平、头小，俗称\"扁头穿木虫\""
+    },
+    habits: {
+      activity: "白天活跃，喜在阳光下的树干上晒太阳，遇惊扰迅速飞逃或缩紧不动",
+      habitat: "阔叶林地、果园、行道树——幼虫在树皮下的形成层中蛀食隧道",
+      season: "5-9月（成虫盛发于夏季）",
+      socialBehavior: "独居，幼虫在树木内部单独钻蛀",
+      lifespan: "幼虫期可长达1-3年（部分种类更久），成虫寿命数周至数月"
+    },
+    bites: {
+      willBite: "rare",
+      biteDescription: "一般不主动咬人，但大型种类被抓住时可用发达大颚夹住皮肤自卫",
+      painLevel: 1,
+      biteSymptoms: "夹伤处轻微红痕，几乎无痛感，无需处理"
+    },
+    toxicity: {
+      isVenomous: false,
+      toxicityLevel: 0,
+      toxinDescription: "无毒"
+    },
+    diet: {
+      food: "幼虫蛀食阔叶树木（栎、榆、苹果、梨、柳等）的形成层与木质部；成虫取食嫩叶、花粉和树汁",
+      feedingHabits: "幼虫是重要林木和果树害虫，蛀道使树皮隆起、树势衰弱甚至枯死"
+    },
+    prevention: "保护树干防止产卵，及时清理衰弱树木，果园可刮除树皮杀卵",
+    firstAid: "被夹到用清水冲洗即可，一般无需处理",
+    funFact: "吉丁虫的金属色彩并非色素，而是鞘翅表面纳米结构对光线的反射——这种\"结构色\"千年不褪，古埃及人就用它做首饰，有\"宝石甲虫\"之称",
+    keywords: ["吉丁虫", "宝石甲虫", "金属光泽", "绿色甲虫", "蓝色甲虫", "铜色甲虫", "闪光甲虫", "扁头穿木虫", "树皮甲虫", "蛀干害虫"]
   }
 ];
 
