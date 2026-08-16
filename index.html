@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>虫识 · 昆虫知识库智能体</title>
-  <link rel="stylesheet" href="css/style.css?v=20260816h">
+  <link rel="stylesheet" href="css/style.css?v=20260816i">
 </head>
 <body>
   <header class="app-header">
@@ -92,6 +92,7 @@
         <button class="filter-chip filter-endangered" data-filter="endangered">🌿 濒危物种</button>
         <button class="filter-chip filter-rare" data-filter="rare">🌟 珍稀物种</button>
         <button class="filter-chip filter-climb" data-filter="climb">🪜 能爬多高</button>
+        <button class="filter-chip filter-speed" data-filter="speed">🏃 谁跑得快</button>
       </div>
       <div id="climbSliderWrap" class="climb-slider-wrap" style="display:none;">
         <div class="climb-slider-header">
@@ -104,6 +105,17 @@
           <span>0层</span><span>2500层</span><span>5000层</span><span>7500层</span><span>10000层</span>
         </div>
         <div id="climbScenery" class="climb-scenery"></div>
+      </div>
+      <div id="speedSliderWrap" class="speed-slider-wrap" style="display:none;">
+        <div class="speed-slider-header">
+          <span class="speed-slider-label">🏃 时速至少：</span>
+          <strong id="speedValue">0 km/h</strong>
+        </div>
+        <input type="range" id="speedSlider" min="0" max="500" step="5" value="0">
+        <div class="speed-slider-scale">
+          <span>0</span><span>125</span><span>250</span><span>375</span><span>500 km/h</span>
+        </div>
+        <div id="speedScenery" class="speed-scenery"></div>
       </div>
     </div>
     <div id="encyclopediaGrid" class="encyclopedia-grid"></div>
@@ -153,8 +165,8 @@
     <p>虫识 · 昆虫知识库智能体 | 数据覆盖 30+ 种常见昆虫 | 仅供参考，不构成医疗建议</p>
   </footer>
 
-  <script src="js/insect-data.js?v=20260816h"></script>
-  <script src="js/classroom.js?v=20260816h"></script>
-  <script src="js/app.js?v=20260816h"></script>
+  <script src="js/insect-data.js?v=20260816i"></script>
+  <script src="js/classroom.js?v=20260816i"></script>
+  <script src="js/app.js?v=20260816i"></script>
 </body>
 </html>
