@@ -183,6 +183,8 @@ const INSECT_DATABASE = [
     latinName: "Formicidae",
     category: "膜翅目",
     emoji: "🐜",
+    pet: true,
+    petInfo: "适合用蚂蚁工坊饲养，观察筑巢与分工；喂糖水、面包屑和小虫，干净好养。",
     dangerLevel: 2,
     fearOfHumans: 3,
     climbFloors: 7,    invasive: true,
@@ -319,6 +321,8 @@ const INSECT_DATABASE = [
     latinName: "Mantodea",
     category: "螳螂目",
     emoji: "🦗",
+    pet: true,
+    petInfo: "温顺有趣，建议单只饲养；喂活虫（果蝇、蟋蟀），需通风饲养盒与攀爬枝。",
     dangerLevel: 1,
     fearOfHumans: 3,
     climbFloors: 10,    identification: {
@@ -362,6 +366,8 @@ const INSECT_DATABASE = [
     latinName: "Lepidoptera",
     category: "鳞翅目",
     emoji: "🦋",
+    pet: true,
+    petInfo: "可饲育毛毛虫至羽化，需准备寄主植物与网箱；观察完放归自然更友好。",
     dangerLevel: 1,
     fearOfHumans: 4,
     climbFloors: 3,    identification: {
@@ -706,6 +712,8 @@ const INSECT_DATABASE = [
     latinName: "Coccinellidae",
     category: "鞘翅目",
     emoji: "🐞",
+    pet: true,
+    petInfo: "益虫，适合儿童短期观察；喂蚜虫或稀释蜜水，注意通风与湿度。",
     dangerLevel: 1,
     fearOfHumans: 3,
     climbFloors: 3,    identification: {
@@ -749,6 +757,8 @@ const INSECT_DATABASE = [
     latinName: "Gryllidae",
     category: "直翅目",
     emoji: "🦗",
+    pet: true,
+    petInfo: "经典鸣虫宠物，喂菜叶、米粒；雄虫好斗，建议分笼饲养。",
     dangerLevel: 1,
     fearOfHumans: 4,
     climbFloors: 3,    identification: {
@@ -1050,6 +1060,8 @@ const INSECT_DATABASE = [
     latinName: "Bombyx mori",
     category: "鳞翅目",
     emoji: "🐛",
+    pet: true,
+    petInfo: "经典儿童宠物，喂新鲜桑叶，可观察结茧化蛾；生命周期短、易照料。",
     dangerLevel: 1,
     fearOfHumans: 2,
     climbFloors: 1,    identification: {
@@ -1179,6 +1191,8 @@ const INSECT_DATABASE = [
     latinName: "Coleoptera",
     category: "鞘翅目",
     emoji: "🐛",
+    pet: true,
+    petInfo: "独角仙、锹形虫等热门宠物；喂专用果冻或水果，幼虫期长但成虫好养。",
     dangerLevel: 1,
     fearOfHumans: 3,
     climbFloors: 5,    identification: {
