@@ -372,6 +372,8 @@ const INSECT_DATABASE = [
     petInfo: "可饲育毛毛虫至羽化，需准备寄主植物与网箱；观察完放归自然更友好。",
     endangered: true,
     endangeredInfo: "许多蝴蝶种类因栖息地破坏与气候变化数量锐减，部分珍稀种（如金斑喙凤蝶）为中国国家一级保护动物。",
+    rare: true,
+    rareInfo: "蝴蝶中不少种类（如金斑喙凤蝶、双尾褐凤蝶）极为珍稀，为中国国家一级或二级保护动物，野外难得一见。",
     dangerLevel: 1,
     fearOfHumans: 4,
     climbFloors: 3,    identification: {
@@ -1532,6 +1534,8 @@ const INSECT_DATABASE = [
     dangerLevel: 1,
     fearOfHumans: 4,
     climbFloors: 10,
+    rare: true,
+    rareInfo: "吉丁虫中许多大型、金属光泽强烈（翠绿、宝蓝、紫铜）的种类极为稀少，是甲虫收藏界的“宝石”，部分稀有种受贸易与栖息地减少影响。",
     identification: {
       size: "10-40mm（多数中型，大型种类可达40mm）",
       color: "体表具强烈金属光泽——翠绿、宝蓝、紫铜、金黄等炫目色彩，常带纵向彩色条纹",
