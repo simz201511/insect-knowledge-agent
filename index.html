@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>虫识 · 昆虫知识库智能体</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20260816e">
 </head>
 <body>
   <header class="app-header">
@@ -20,6 +20,7 @@
         <button class="nav-tab active" data-tab="identify">智能识别</button>
         <button class="nav-tab" data-tab="encyclopedia">昆虫百科</button>
         <button class="nav-tab" data-tab="compare">对比表</button>
+        <button class="nav-tab" data-tab="classroom">瓢虫课堂</button>
       </nav>
     </div>
   </header>
@@ -87,6 +88,19 @@
         <button class="filter-chip" data-filter="harmless">✅ 无害</button>
         <button class="filter-chip filter-invasive" data-filter="invasive">🌍 外来物种</button>
         <button class="filter-chip filter-yearround" data-filter="yearround">📅 全年活动</button>
+        <button class="filter-chip filter-climb" data-filter="climb">🪜 能爬多高</button>
+      </div>
+      <div id="climbSliderWrap" class="climb-slider-wrap" style="display:none;">
+        <div class="climb-slider-header">
+          <span class="climb-slider-label">🪜 能爬到至少：</span>
+          <strong id="climbValue">0 层</strong>
+          <span class="climb-meters" id="climbMeters">≈ 0 米</span>
+        </div>
+        <input type="range" id="climbSlider" min="0" max="10000" step="5" value="0">
+        <div class="climb-slider-scale">
+          <span>0层</span><span>2500层</span><span>5000层</span><span>7500层</span><span>10000层</span>
+        </div>
+        <div id="climbScenery" class="climb-scenery"></div>
       </div>
     </div>
     <div id="encyclopediaGrid" class="encyclopedia-grid"></div>
@@ -111,11 +125,33 @@
     <div id="compareTableContainer" class="compare-table-container"></div>
   </section>
 
+  <!-- 瓢虫课堂 -->
+  <section id="tab-classroom" class="tab-content">
+    <div class="classroom-header">
+      <div class="classroom-intro">
+        <div class="classroom-mascot">🐞</div>
+        <div>
+          <h2>瓢虫课堂</h2>
+          <p>跟着瓢虫教授学昆虫：认识六足世界的小秘密，掌握分类鉴别的基本功。</p>
+        </div>
+      </div>
+      <div class="classroom-nav" id="classroomNav">
+        <button class="classroom-chip active" data-topic="basics">🐛 什么是昆虫</button>
+        <button class="classroom-chip" data-topic="metamorphosis">🔄 变态发育</button>
+        <button class="classroom-chip" data-topic="taxonomy">📋 分类速查表</button>
+        <button class="classroom-chip" data-topic="butterfly-vs-moth">🦋 蝴蝶 vs 飞蛾</button>
+        <button class="classroom-chip" data-topic="observation">🔭 观察指南</button>
+      </div>
+    </div>
+    <div id="classroomContent" class="classroom-content"></div>
+  </section>
+
   <footer class="app-footer">
     <p>虫识 · 昆虫知识库智能体 | 数据覆盖 30+ 种常见昆虫 | 仅供参考，不构成医疗建议</p>
   </footer>
 
-  <script src="js/insect-data.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/insect-data.js?v=20260816e"></script>
+  <script src="js/classroom.js?v=20260816e"></script>
+  <script src="js/app.js?v=20260816e"></script>
 </body>
 </html>
