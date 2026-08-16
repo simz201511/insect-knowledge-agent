@@ -17,6 +17,24 @@ const App = {
     this.renderCompareTable();
   },
 
+  // 楼层 → 风景对照（1层≈3米，含真实照片）
+  climbScenery(floors) {
+    const m = (floors || 0) * 3;
+    const S = 'assets/scenery/';
+    if (floors <= 0) return { emoji: '🌱', name: '地面', img: S + '01-ground.png', desc: '泥土、落叶和草丛——昆虫的主场，一切从这里开始' };
+    if (floors <= 3)   return { emoji: '🌿', name: '花草矮墙', img: S + '02-garden.png', desc: `${m}米：和窗台花盆、篱笆、电动车座椅平齐，瓢虫的家` };
+    if (floors <= 8)   return { emoji: '🏠', name: '低层住宅', img: S + '03-lowrise.png', desc: `${m}米：一二楼窗外，空调外机和晾衣杆的世界，蟑螂蚂蚁出没` };
+    if (floors <= 15)  return { emoji: '🌳', name: '大树树冠', img: S + '04-canopy.png', desc: `${m}米：普通乔木顶端、五六层楼顶，蝉鸣螳螂和弓背蚁的地盘` };
+    if (floors <= 30)  return { emoji: '🏙️', name: '高楼外墙', img: S + '05-highrise.png', desc: `${m}米：高层住宅与写字楼中段，马蜂窝常客高度，风开始变大` };
+    if (floors <= 100) return { emoji: '🗼', name: '超高层', img: S + '06-skyscraper.png', desc: `${m}米：摩天大楼上部、电视塔顶，昆虫搭乘上升气流搭"电梯"到此` };
+    if (floors <= 300) return { emoji: '⛰️', name: '山峰之腰', img: S + '07-mountain.png', desc: `${m}米：多数高山山腰，蝴蝶迁飞通道，风大气温低` };
+    if (floors <= 700) return { emoji: '🌫️', name: '云层之下', img: S + '08-below-clouds.png', desc: `${m}米：低云云底附近，山巅在脚下，普通鸟类极限高度` };
+    if (floors <= 1000)return { emoji: '☁️', name: '云海之中', img: S + '09-cloud-sea.png', desc: `${m}米：穿行云层，雪山之巅的高度，蚊子竟也能随风到此` };
+    if (floors <= 2000)return { emoji: '✈️', name: '民航高空', img: S + '10-aviation.png', desc: `${m}米：飞机巡航高度带，急流呼啸，蝗群与美国白蛾迁飞的空中走廊` };
+    if (floors <= 5000)return { emoji: '🌨️', name: '对流层上部', img: S + '11-upper-troposphere.png', desc: `${m}米：零下几十度、空气稀薄，仅靠气流的"高空漂流者"偶尔出现` };
+    return { emoji: '🌌', name: '对流层顶', img: S + '12-tropopause.png', desc: `${m}米：接近平流层边缘，几乎没有生命能停留——滑到这里是"探底"了` };
+  },
+
   // Tab switching
   bindTabs() {
     document.querySelectorAll('.nav-tab').forEach(tab => {
@@ -382,7 +400,7 @@ const App = {
     return `
       <div class="result-card">
         <div class="result-header">
-          <div class="result-emoji">${insect.emoji}</div>
+          <div class="result-emoji">${this.insectPhoto(insect, 'result-photo')}</div>
           <div class="result-name">
             <h3>${insect.name} ${isTop ? '⭐' : ''}</h3>
             <div class="latin">${insect.latinName}</div>
@@ -432,6 +450,7 @@ const App = {
               <div class="info-item"><span class="label">栖息地：</span><span class="value">${insect.habits.habitat}</span></div>
               <div class="info-item"><span class="label">季节：</span><span class="value">${insect.habits.season}</span></div>
               <div class="info-item"><span class="label">寿命：</span><span class="value">${insect.habits.lifespan}</span></div>
+              ${typeof insect.climbFloors === 'number' ? (() => { const s = this.climbScenery(insect.climbFloors); return `<div class="info-item"><span class="label">🪜 能爬高度：</span><span class="value">约 ${insect.climbFloors.toLocaleString()} 层（≈ ${(insect.climbFloors * 3).toLocaleString()} 米）${s.emoji} ${s.name}</span></div><div class="info-item"><span class="label">🏞️ 这层的风景：</span><span class="value">${s.desc}</span></div><div class="modal-scenery-photo"><img src="${s.img}" alt="${s.name}" onerror="this.parentNode.style.display='none'"><div class="modal-scenery-caption">${s.emoji} ${s.name} · ${insect.name}的视野</div></div>`; })() : ''}
             </div>
             <div class="info-note" style="margin-top:8px;background:var(--color-surface-alt);font-size:13px;">
               社会行为：${insect.habits.socialBehavior}
@@ -484,6 +503,18 @@ const App = {
     `;
   },
 
+  // Real photo with emoji fallback
+  insectPhoto(insect, className) {
+    if (insect.image) {
+      return `<div class="photo-wrap ${className}">
+        <img src="${insect.image}" alt="${insect.name}" loading="lazy"
+             onerror="this.remove();this.nextElementSibling.style.display='flex';">
+        <span class="photo-fallback">${insect.emoji}</span>
+      </div>`;
+    }
+    return `<div class="photo-wrap ${className}"><span class="photo-fallback" style="display:flex;">${insect.emoji}</span></div>`;
+  },
+
   getBiteBadge(insect) {
     switch(insect.bites.willBite) {
       case 'yes': return '<span class="badge badge-danger">会咬人</span>';
@@ -531,15 +562,24 @@ const App = {
     if (filter === 'harmless') insects = insects.filter(i => i.bites.willBite === 'no' && !i.toxicity.isVenomous);
     if (filter === 'invasive') insects = insects.filter(i => i.invasive === true);
     if (filter === 'yearround') insects = insects.filter(i => i.habits.season && i.habits.season.includes('全年'));
+    if (filter === 'climb') {
+      const threshold = this.climbThreshold || 0;
+      insects = insects.filter(i => (i.climbFloors || 0) >= threshold);
+      insects.sort((a, b) => (b.climbFloors || 0) - (a.climbFloors || 0)); // highest climbers first
+    }
 
     if (insects.length === 0) {
-      grid.innerHTML = '<div class="no-results"><div class="icon">🔍</div><p>未找到匹配的昆虫</p></div>';
+      const record = [...INSECT_DATABASE].sort((a, b) => (b.climbFloors || 0) - (a.climbFloors || 0))[0];
+      const climbMsg = filter === 'climb' && record
+        ? `没有昆虫能爬到这么高 🪜<br><span style="font-size:13px;">这里的风景：${this.climbScenery(this.climbThreshold || 0).emoji} ${this.climbScenery(this.climbThreshold || 0).name}<br>当前纪录保持者：${record.name}（约 ${record.climbFloors} 层 ≈ ${record.climbFloors * 3} 米）</span>`
+        : '未找到匹配的昆虫';
+      grid.innerHTML = `<div class="no-results"><div class="icon">${filter === 'climb' ? '🪜' : '🔍'}</div><p>${climbMsg}</p></div>`;
       return;
     }
 
     grid.innerHTML = insects.map(insect => `
       <div class="insect-card" onclick="App.showInsectDetail('${insect.id}')">
-        <div class="insect-card-header">${insect.emoji}${insect.invasive ? '<span class="invasive-flag">🌍 外来</span>' : ''}</div>
+        <div class="insect-card-header">${this.insectPhoto(insect, 'card-photo')}${insect.invasive ? '<span class="invasive-flag">🌍 外来</span>' : ''}</div>
         <div class="insect-card-body">
           <h4>${insect.name}</h4>
           <div class="latin">${insect.latinName}</div>
@@ -547,6 +587,7 @@ const App = {
             ${this.getBiteBadge(insect)}
             ${this.getDangerBadge(insect)}
           </div>
+          ${typeof insect.climbFloors === 'number' ? `<div class="climb-badge" title="${this.climbScenery(insect.climbFloors).desc}">🪜 最高约 ${insect.climbFloors.toLocaleString()} 层 · ${this.climbScenery(insect.climbFloors).emoji}${this.climbScenery(insect.climbFloors).name}</div>` : ''}
         </div>
       </div>
     `).join('');
@@ -567,7 +608,7 @@ const App = {
     content.innerHTML = `
       <div style="padding:0;">
         <div style="padding:24px;text-align:center;background:var(--color-primary-light);border-radius:var(--radius-xl) var(--radius-xl) 0 0;">
-          <div style="font-size:56px;margin-bottom:8px;">${insect.emoji}</div>
+          <div style="margin-bottom:8px;">${this.insectPhoto(insect, 'modal-photo')}</div>
           <h2 style="font-size:22px;font-weight:600;">${insect.name}</h2>
           <p style="font-size:13px;color:var(--color-text-tertiary);font-style:italic;">${insect.latinName}</p>
           <p style="font-size:12px;color:var(--color-text-secondary);margin-top:4px;">${insect.category}</p>
@@ -670,8 +711,61 @@ document.addEventListener('DOMContentLoaded', () => {
     chip.addEventListener('click', () => {
       document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
       chip.classList.add('active');
+      // Show the climb slider only for the climb filter
+      document.getElementById('climbSliderWrap').style.display = chip.dataset.filter === 'climb' ? 'block' : 'none';
+      if (chip.dataset.filter === 'climb') updateClimbScenery(parseInt(climbSlider.value, 10));
       const searchTerm = document.getElementById('encyclopediaSearch').value;
       App.renderEncyclopedia(chip.dataset.filter, searchTerm);
     });
   });
+
+  // Climb-height slider
+  const climbSlider = document.getElementById('climbSlider');
+  function updateClimbScenery(v) {
+    const s = App.climbScenery(v);
+    const el = document.getElementById('climbScenery');
+    if (el) el.innerHTML = `<img class="scenery-photo" src="${s.img}" alt="${s.name}" draggable="false" onerror="this.style.display='none'"><div class="scenery-text"><span class="scenery-emoji">${s.emoji}</span><span class="scenery-name">${s.name}</span><span class="scenery-desc">${s.desc}</span></div><div class="scenery-hint">⬅️ 左滑下降 · 右滑上升 ➡️</div>`;
+  }
+  function setClimbValue(v) {
+    v = Math.max(0, Math.min(10000, Math.round(v / 5) * 5));
+    climbSlider.value = v;
+    App.climbThreshold = v;
+    document.getElementById('climbValue').textContent = v.toLocaleString() + ' 层';
+    document.getElementById('climbMeters').textContent = '≈ ' + (v * 3).toLocaleString() + ' 米';
+    updateClimbScenery(v);
+    const activeFilter = document.querySelector('.filter-chip.active');
+    if (activeFilter && activeFilter.dataset.filter === 'climb') {
+      const searchTerm = document.getElementById('encyclopediaSearch').value;
+      App.renderEncyclopedia('climb', searchTerm);
+    }
+  }
+  climbSlider.addEventListener('input', e => setClimbValue(parseInt(e.target.value, 10)));
+
+  // 拖动风景照片：向右拖=上升、向左拖=下降（每 12px 对应 5 层）
+  const sceneryCard = document.getElementById('climbScenery');
+  let dragging = false, dragStartX = 0, dragStartV = 0;
+  sceneryCard.addEventListener('pointerdown', e => {
+    dragging = true;
+    dragStartX = e.clientX;
+    dragStartV = parseInt(climbSlider.value, 10) || 0;
+    sceneryCard.classList.add('dragging');
+    try { sceneryCard.setPointerCapture(e.pointerId); } catch (err) {}
+    e.preventDefault();
+  });
+  sceneryCard.addEventListener('pointermove', e => {
+    if (!dragging) return;
+    const dx = e.clientX - dragStartX;
+    const dv = Math.round(dx / 12) * 5;
+    sceneryCard.style.setProperty('--drag-x', Math.max(-24, Math.min(24, dx / 4)) + 'px');
+    setClimbValue(dragStartV + dv);
+  });
+  const endDrag = () => {
+    if (!dragging) return;
+    dragging = false;
+    sceneryCard.classList.remove('dragging');
+    sceneryCard.style.removeProperty('--drag-x');
+  };
+  sceneryCard.addEventListener('pointerup', endDrag);
+  sceneryCard.addEventListener('pointercancel', endDrag);
+  sceneryCard.addEventListener('lostpointercapture', endDrag);
 });
